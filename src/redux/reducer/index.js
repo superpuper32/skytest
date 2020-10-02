@@ -24,12 +24,6 @@ const pictureFetchingState = handleActions(
 
 const pictures = handleActions(
   {
-    // [actions.fetchPictureSuccess](state, { payload }) {
-    //   return {
-    //     byId: _.keyBy(payload.pictures, "id"),
-    //     allIds: payload.pictures.map((p) => p.id),
-    //   };
-    // },
     [actions.addPictureSuccess](state, { payload: { picture } }) {
       const { byId, allIds } = state;
       const { id, username, image_url } = picture;
