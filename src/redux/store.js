@@ -9,7 +9,6 @@ import history from "../history";
 const enhancer = applyMiddleware(
   thunk,
   routerMiddleware(history),
-
 );
 
 export default createStore(reducer, composeWithDevTools(enhancer));

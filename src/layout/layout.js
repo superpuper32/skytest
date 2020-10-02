@@ -6,6 +6,8 @@ import Header from "./header";
 
 const Wrapper = styled.section`
   padding: 4em;
+  height: 70vh;
+  text-align: center;
   background: papayawhip;
 `;
 
