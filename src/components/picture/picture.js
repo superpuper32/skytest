@@ -5,11 +5,6 @@ const StyledPicture = styled.img`
   max-width: 240px;
 `;
 
-const Picture = ({src}) => {
-
-    return (
-        <StyledPicture src={src} alt="UKTVGIFBANK" />
-    );
-};
+const Picture = ({src}) => <StyledPicture src={src} alt="UKTVGIFBANK" />;
 
 export default Picture;

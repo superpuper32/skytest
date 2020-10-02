@@ -15,7 +15,7 @@ const pictureFetchingState = handleActions(
     [actions.fetchPictureFailure]() {
       return "failed";
     },
-    [actions.fetchPictureSuccess]() {
+    [actions.addPictureSuccess]() {
       return "finished";
     },
   },
@@ -24,24 +24,20 @@ const pictureFetchingState = handleActions(
 
 const pictures = handleActions(
   {
-    [actions.fetchPictureSuccess](state, { payload }) {
-      return {
-        byId: _.keyBy(payload.pictures, "id"),
-        allIds: payload.pictures.map((p) => p.id),
-      };
-    },
+    // [actions.fetchPictureSuccess](state, { payload }) {
+    //   return {
+    //     byId: _.keyBy(payload.pictures, "id"),
+    //     allIds: payload.pictures.map((p) => p.id),
+    //   };
+    // },
     [actions.addPictureSuccess](state, { payload: { picture } }) {
       const { byId, allIds } = state;
-      const {
-        id,
-        title,
-        image_url
-      } = picture;
+      const { id, username, image_url } = picture;
       const time = getTime();
       return {
         byId: {
           ...byId,
-          [picture.id]: { id, title, url: image_url, time }
+          [picture.id]: { id, title: username, url: image_url, time }
         },
         allIds: [picture.id, ...allIds],
       };
