@@ -12,10 +12,6 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-// const actionCreators = {
-//   fetchPicture: actions.fetchPicture,
-// };
-
 function MainPage() {
   const dispatch = useDispatch();
   const handleNewApp = (e) => {

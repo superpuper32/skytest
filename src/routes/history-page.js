@@ -1,11 +1,11 @@
 import React from "react";
 
-import Button from "../components/button";
+import Pictures from "../components/pictures";
 
 function HistoryPage() {
   return (
     <div className="App">
-      <Button>Remove</Button>
+      <Pictures />
     </div>
   );
 }

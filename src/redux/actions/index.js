@@ -5,11 +5,8 @@ export const fetchPictureRequest = createAction("PICTURES_FETCH_REQUEST");
 export const fetchPictureSuccess = createAction("PICTURES_FETCH_SUCCESS");
 export const fetchPictureFailure = createAction("PICTURES_FETCH_FAILURE");
 
-export const removePictureRequest = createAction("PICTURE_REMOVE_REQUEST");
-export const removePictureSuccess = createAction("PICTURE_REMOVE_SUCCESS");
-export const removePictureFailure = createAction("PICTURE_REMOVE_FAILURE");
-
 export const addPictureSuccess = createAction("PICTURE_ADD_SUCCESS");
+export const removePicture = createAction("PICTURE_REMOVE");
 
 export const fetchPicture = () => async (dispatch) => {
   dispatch(fetchPictureRequest());
