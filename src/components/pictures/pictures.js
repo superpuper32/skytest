@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { picturesSelector } from "../../redux/selectors";
 import * as actions from "../../redux/actions/index.js";
 
 import Picture from "../picture";
@@ -17,40 +18,26 @@ const WrapperPicture = styled.section`
   max-width: 240px;
 `;
 
-const mapStateToProps = (state) => {
-  const {
-    pictures: { byId, allIds },
-  } = state;
-  const pictures = allIds.map((id) => byId[id]);
-  return { pictures };
-};
+const Pictures = () => {
+  const pictures = useSelector(picturesSelector);
 
-const actionCreators = {
-  removePicture: actions.removePicture,
-};
-
-class Pictures extends Component {
-  handleRemovePicture = (id) => () => {
-    const { removePicture } = this.props;
-    removePicture({ id });
+  const dispatch = useDispatch();
+  const handleRemovePicture = (id) => () => {
+    dispatch(actions.removePicture({ id }));
   };
-
-  render() {
-    const { pictures } = this.props;
 
     return (
       <WrapperPictures>
         {pictures.map(({ id, title, url, time }) => (
           <WrapperPicture key={id}>
             {title}
-            <Picture src={url} />
+            <Picture src={url} alt={title} />
             <span>Downloaded: {time}</span>
-            <Button handleClick={this.handleRemovePicture(id)}>remove</Button>
+            <Button handleClick={handleRemovePicture(id)}>remove</Button>
           </WrapperPicture>
         ))}
       </WrapperPictures>
     );
-  }
-}
+};
 
-export default connect(mapStateToProps, actionCreators)(Pictures);
+export default Pictures;

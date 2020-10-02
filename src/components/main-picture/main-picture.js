@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
-import { selectPicture } from "../../redux/selectors";
+import { pictureSelector } from "../../redux/selectors";
 
 const StyledMainPicture = styled.img`
   max-width: 240px;
@@ -25,7 +25,7 @@ const Rotate = styled.div`
 
 function MainPicture() {
   const fetchingState = useSelector((state) => state.pictureFetchingState);
-  const picture = useSelector(selectPicture);
+  const picture = useSelector(pictureSelector);
 
   if (fetchingState === "requested") {
     return (

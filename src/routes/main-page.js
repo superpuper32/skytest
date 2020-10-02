@@ -14,7 +14,7 @@ const Title = styled.h1`
 
 const WrapperImage = styled.div`
   text-align: center;
-  min-height: 200px;
+  min-height: 300px;
 `;
 
 function MainPage() {

@@ -1,13 +1,17 @@
 import { createSelector } from "reselect";
 
-
-const picturesSelector = (state) => state.pictures.byId;
+const getPictureById = (state) => state.pictures.byId;
+const getPictureIds = (state) => state.pictures.allIds;
 
 const mapToArray = (selector) => createSelector(selector, Object.values);
+const picturesListSelector = mapToArray(getPictureById);
 
-const picturesListSelector = mapToArray(picturesSelector);
+export const picturesSelector = createSelector(
+  [getPictureById, getPictureIds],
+  (byId, allIds) => allIds.map((id) => byId[id])
+);
 
-export const selectPicture = createSelector(
+export const pictureSelector = createSelector(
   picturesListSelector,
   (pictures) => pictures[pictures.length - 1]
 );
