@@ -7,6 +7,9 @@ import Header from "./header";
 const Wrapper = styled.section`
   padding: 4em;
   height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   background: papayawhip;
 `;
