@@ -5,7 +5,6 @@ import { connectRouter } from "connected-react-router";
 import * as actions from "../actions";
 
 import history from "../../history";
-import { getTime } from "../utils.js";
 
 const pictureFetchingState = handleActions(
   {
@@ -24,10 +23,9 @@ const pictureFetchingState = handleActions(
 
 const pictures = handleActions(
   {
-    [actions.addPictureSuccess](state, { payload: { picture } }) {
+    [actions.addPictureSuccess](state, { payload: { picture, time } }) {
       const { byId, allIds } = state;
       const { id, username, image_url } = picture;
-      const time = getTime();
       return {
         byId: {
           ...byId,
