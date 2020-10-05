@@ -12,6 +12,7 @@ a {
   text-decoration: none;
 }
 
-a.active {
+a.active, button.active {
   color: mediumseagreen;
+  border-color: mediumseagreen;
 }
