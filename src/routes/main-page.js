@@ -25,13 +25,13 @@ function MainPage() {
   };
   
   return (
-    <div className="App">
+    <>
       <Title>Dynamic downloading images</Title>
       <WrapperImage>
         <MainPicture />
       </WrapperImage>
       <Button handleClick={handleNewApp}>download</Button>
-    </div>
+    </>
   );
 }
 

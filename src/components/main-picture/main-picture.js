@@ -46,11 +46,7 @@ function MainPicture() {
   }
   const { url } = picture;
 
-  return (
-    <div>
-      <StyledMainPicture src={url} />
-    </div>
-  );
+  return <StyledMainPicture src={url} />;
 }
 
 export default MainPicture;

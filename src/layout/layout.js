@@ -14,10 +14,10 @@ const Wrapper = styled.section`
 const Layout = ({ children }) => {
 
   return (
-    <div>
+    <>
       <Header />
       <Wrapper>{children}</Wrapper>
-    </div>
+    </>
   );
 };
 
