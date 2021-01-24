@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import styled from "styled-components";
 
+const PAGES_TO_SHOW = 5;
+
 const StyledList = styled.ul`
   margin-top: 30px;
   display: flex;
@@ -39,9 +41,9 @@ class Pagination extends Component {
   componentDidMount() {
     this.setState({
       totalPictures: this.props.totalPictures,
-      pageLimit: this.props.pageLimit || 5,
+      pageLimit: this.props.pageLimit || PAGES_TO_SHOW,
       totalPages: Math.ceil(this.props.totalPictures / this.props.pageLimit),
-      pagesToShow: this.props.pagesToShow || 5,
+      pagesToShow: this.props.pagesToShow || PAGES_TO_SHOW,
       currentPage: this.props.initialPage || 1,
     });
   }
@@ -49,9 +51,9 @@ class Pagination extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({
       totalPictures: nextProps.totalPictures,
-      pageLimit: nextProps.pageLimit || 5,
+      pageLimit: nextProps.pageLimit || PAGES_TO_SHOW,
       totalPages: Math.ceil(nextProps.totalPictures / nextProps.pageLimit),
-      pagesToShow: nextProps.pagesToShow || 5,
+      pagesToShow: nextProps.pagesToShow || PAGES_TO_SHOW,
     });
   }
 
